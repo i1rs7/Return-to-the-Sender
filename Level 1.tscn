@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://fpfu7jpjgsag"]
+[gd_scene load_steps=13 format=3 uid="uid://fpfu7jpjgsag"]
 
 [ext_resource type="Texture2D" uid="uid://ct1duee4sab6m" path="res://Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="1_d1jbf"]
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://oliv5m37v1ts" path="res://CharacterAnimations/Idle.png" id="2_gvvdy"]
 [ext_resource type="Script" uid="uid://du32yyamw7mbs" path="res://character_body_2d.gd" id="2_hi2wx"]
-[ext_resource type="Script" uid="uid://brtxu3wm3nbg6" path="res://camera_2d.gd" id="5_hi2wx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1xjbt"]
 texture = ExtResource("1_d1jbf")
@@ -483,4 +482,4 @@ scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_1405j")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-script = ExtResource("5_hi2wx")
+zoom = Vector2(2, 2)
