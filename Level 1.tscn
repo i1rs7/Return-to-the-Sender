@@ -271,7 +271,7 @@ repeat_times = 3
 texture = ExtResource("3_ivlpf")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(1062, 5)
+position = Vector2(1081, 5)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("2_hi2wx")
