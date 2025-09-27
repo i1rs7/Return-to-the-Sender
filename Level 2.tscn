@@ -1,3 +1,109 @@
-[gd_scene format=3 uid="uid://bmttq2lnddfwb"]
+[gd_scene load_steps=14 format=3 uid="uid://bmttq2lnddfwb"]
+
+[ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_cl68u"]
+[ext_resource type="Texture2D" uid="uid://bc082gp5oil08" path="res://Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="2_xtqvv"]
+[ext_resource type="Texture2D" uid="uid://drbvn3j1ijhdq" path="res://Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="3_4ew63"]
+[ext_resource type="Script" uid="uid://du32yyamw7mbs" path="res://character_body_2d.gd" id="4_bi3nv"]
+[ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://CharacterAnimations/Happy.png" id="5_p24lo"]
+[ext_resource type="Texture2D" uid="uid://oliv5m37v1ts" path="res://CharacterAnimations/Idle.png" id="6_3iti4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1jbf"]
+atlas = ExtResource("5_p24lo")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi2wx"]
+atlas = ExtResource("5_p24lo")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xjbt"]
+atlas = ExtResource("6_3iti4")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy3yb"]
+atlas = ExtResource("6_3iti4")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6khxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1jbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi2wx")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xjbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy3yb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dv2v8"]
+radius = 110.0
+height = 460.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jen0v"]
+size = Vector2(7258, 66)
 
 [node name="Level 2" type="Node2D"]
+
+[node name="Parallax" type="Node2D" parent="."]
+visible = false
+position = Vector2(739, -51)
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.5, 1)
+repeat_times = 5
+
+[node name="Bg3" type="Sprite2D" parent="Parallax/Parallax2D"]
+texture = ExtResource("1_cl68u")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.3, 1)
+repeat_times = 3
+
+[node name="Bg2" type="Sprite2D" parent="Parallax/Parallax2D2"]
+texture = ExtResource("2_xtqvv")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.1, 1)
+repeat_times = 3
+
+[node name="Bg1" type="Sprite2D" parent="Parallax/Parallax2D3"]
+texture = ExtResource("3_4ew63")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_bi3nv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(1, 4)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_6khxn")
+animation = &"happy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 5)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CapsuleShape2D_dv2v8")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
+limit_left = -285
+limit_top = -235
+limit_bottom = 150
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3309, 179)
+shape = SubResource("RectangleShape2D_jen0v")
