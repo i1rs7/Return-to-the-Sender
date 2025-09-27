@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bmttq2lnddfwb"]
+[gd_scene load_steps=39 format=4 uid="uid://bmttq2lnddfwb"]
 
 [ext_resource type="Texture2D" uid="uid://bne7p4mevepe3" path="res://Mossy Fantasy/Mossy Tileset/Background.jpg" id="1_4ew63"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_cl68u"]
@@ -12,6 +12,7 @@
 [ext_resource type="TileSet" uid="uid://c60cn6ekvl0bv" path="res://Level 2.tres" id="7_xtqvv"]
 [ext_resource type="Texture2D" uid="uid://dwsl11ln6kapd" path="res://CharacterAnimations/Jump.png" id="10_dv2v8"]
 [ext_resource type="Texture2D" uid="uid://f8manbwbons5" path="res://CharacterAnimations/Run.png" id="11_jen0v"]
+[ext_resource type="Texture2D" uid="uid://ofbj52qeu7cy" path="res://Cures/32x32/Aqua.png" id="13_dv2v8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p24lo"]
 texture = ExtResource("3_bi3nv")
@@ -334,3 +335,9 @@ position = Vector2(0.6, -29.4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(3309, 179)
 shape = SubResource("RectangleShape2D_jen0v")
+
+[node name="Cure" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Cure"]
+position = Vector2(744, -174)
+texture = ExtResource("13_dv2v8")

@@ -244,7 +244,7 @@ size = Vector2(35, 6)
 size = Vector2(528, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilcng"]
-radius = 15.033297
+radius = 15.0333
 
 [node name="Node2D2" type="Node2D"]
 
@@ -334,13 +334,13 @@ shape = SubResource("RectangleShape2D_sufmp")
 [node name="cure" type="Area2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="cure"]
-position = Vector2(1137.0001, 67.00001)
-scale = Vector2(0.5694495, 0.5814108)
+position = Vector2(1137, 67)
+scale = Vector2(0.569449, 0.581411)
 texture = ExtResource("12_sufmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cure"]
-position = Vector2(1137.0001, 67.00001)
-scale = Vector2(0.5694495, 0.5814108)
+position = Vector2(1137, 67)
+scale = Vector2(0.569449, 0.581411)
 shape = SubResource("CircleShape2D_ilcng")
 
 [node name="UI" type="Container" parent="."]
@@ -355,8 +355,8 @@ scale = Vector2(0.06, 0.06)
 texture = ExtResource("13_6vgnj")
 
 [node name="Img0523" type="Sprite2D" parent="UI"]
-position = Vector2(63.999977, 67)
-scale = Vector2(0.05966797, 0.05527344)
+position = Vector2(64, 67)
+scale = Vector2(0.059668, 0.0552734)
 texture = ExtResource("14_hcsjw")
 
 [node name="Label" type="Label" parent="UI"]
