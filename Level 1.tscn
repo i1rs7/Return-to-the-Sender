@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=4 uid="uid://fpfu7jpjgsag"]
 
 [ext_resource type="Texture2D" uid="uid://ct1duee4sab6m" path="res://Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="1_d1jbf"]
-[ext_resource type="Script" uid="uid://dw54mw01vpu50" path="res://level_1.gd" id="1_ivlpf"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_ivlpf"]
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_vy3yb"]
 [ext_resource type="Texture2D" uid="uid://bc082gp5oil08" path="res://Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="2_1405j"]
