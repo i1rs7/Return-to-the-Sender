@@ -63,7 +63,11 @@ func update_animation(direction):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	anim_sprite.play("death")
-	
-	#get_tree().reload_current_scene()
-	print('hit 2')
 	controls_enabled = false
+	$Timer.start()
+		
+	
+
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()
