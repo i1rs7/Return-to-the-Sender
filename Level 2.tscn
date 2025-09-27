@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bmttq2lnddfwb"]
+[gd_scene load_steps=40 format=4 uid="uid://bmttq2lnddfwb"]
 
 [ext_resource type="Texture2D" uid="uid://bne7p4mevepe3" path="res://Mossy Fantasy/Mossy Tileset/Background.jpg" id="1_4ew63"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_cl68u"]
@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://CharacterAnimations/Happy.png" id="5_p24lo"]
 [ext_resource type="Texture2D" uid="uid://oliv5m37v1ts" path="res://CharacterAnimations/Idle.png" id="6_3iti4"]
 [ext_resource type="Texture2D" uid="uid://bkv1wxbshxjxj" path="res://CharacterAnimations/RecieveDamage.png" id="7_6khxn"]
-[ext_resource type="TileSet" uid="uid://c60cn6ekvl0bv" path="res://Level 2.tres" id="7_xtqvv"]
+[ext_resource type="TileSet" uid="uid://oi42weg2s8wo" path="res://Level 2.tres" id="7_xtqvv"]
 [ext_resource type="Texture2D" uid="uid://dwsl11ln6kapd" path="res://CharacterAnimations/Jump.png" id="10_dv2v8"]
 [ext_resource type="Texture2D" uid="uid://f8manbwbons5" path="res://CharacterAnimations/Run.png" id="11_jen0v"]
-[ext_resource type="Texture2D" uid="uid://ofbj52qeu7cy" path="res://Cures/32x32/Aqua.png" id="13_dv2v8"]
+[ext_resource type="Texture2D" uid="uid://b4wmcg1fjxuhq" path="res://drawn assets/Untitled_Artwork 5.png" id="13_dv2v8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p24lo"]
 texture = ExtResource("3_bi3nv")
@@ -259,6 +259,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jen0v"]
 size = Vector2(7258, 66)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dv2v8"]
+radius = 13.152946
+
 [node name="Level 2" type="Node2D"]
 
 [node name="Parallax" type="Node2D" parent="."]
@@ -336,8 +339,15 @@ position = Vector2(0.6, -29.4)
 position = Vector2(3309, 179)
 shape = SubResource("RectangleShape2D_jen0v")
 
-[node name="Cure" type="Node2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Cure"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 position = Vector2(744, -174)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("13_dv2v8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(745, -173)
+shape = SubResource("CircleShape2D_dv2v8")
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

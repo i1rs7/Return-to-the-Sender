@@ -87,6 +87,7 @@ func _on_delete_dash_pressed() -> void:
 	$"../UI/dash".hide()
 	$"../UI/nodash".show()
 	print('no dash')
+	get_tree().change_scene_to_file("res://Level 2.tscn")
 
 
 func _on_delete_double_jump_pressed() -> void:
@@ -94,3 +95,4 @@ func _on_delete_double_jump_pressed() -> void:
 	$"../UI/double jumps".hide()
 	$"../UI/nodoublejumps".show()
 	$"../UI/Timer".start()
+	get_tree().change_scene_to_file("res://Level 2.tscn")

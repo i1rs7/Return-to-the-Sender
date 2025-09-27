@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://baotpsko8htyl" path="res://CharacterAnimations/Die.png" id="7_sufmp"]
 [ext_resource type="Texture2D" uid="uid://dwsl11ln6kapd" path="res://CharacterAnimations/Jump.png" id="8_gmd7o"]
 [ext_resource type="TileSet" uid="uid://dp307fauy7ogj" path="res://Level 1.tres" id="10_gmd7o"]
-[ext_resource type="Texture2D" uid="uid://l6yk0ks65v6v" path="res://Cures/32x32/Green.png" id="12_sufmp"]
+[ext_resource type="Texture2D" uid="uid://ckfepu044e4s1" path="res://drawn assets/Untitled_Artwork 2.png" id="12_7sjwh"]
 [ext_resource type="Texture2D" uid="uid://6gdf0bctbl74" path="res://drawn assets/IMG_0525.PNG" id="13_6vgnj"]
 [ext_resource type="Script" uid="uid://5gkp0glrmdyj" path="res://ui.gd" id="13_hcsjw"]
 [ext_resource type="Texture2D" uid="uid://b7u1npclk20tx" path="res://drawn assets/IMG_0523.PNG" id="14_hcsjw"]
@@ -249,7 +249,7 @@ size = Vector2(528, 7)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilcng"]
 radius = 15.033297
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 
 [node name="Parallax" type="Node2D" parent="."]
 position = Vector2(739, -51)
@@ -276,7 +276,7 @@ repeat_times = 3
 texture = ExtResource("3_ivlpf")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(1081, 5)
+position = Vector2(-260, 5)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("2_hi2wx")
@@ -338,8 +338,8 @@ shape = SubResource("RectangleShape2D_sufmp")
 
 [node name="sprite" type="Sprite2D" parent="cure"]
 position = Vector2(1137.0001, 67.00001)
-scale = Vector2(0.5694495, 0.5814108)
-texture = ExtResource("12_sufmp")
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("12_7sjwh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cure"]
 position = Vector2(1137.0001, 67.00001)
