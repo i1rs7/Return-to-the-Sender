@@ -7,14 +7,18 @@ const JUMP_VELOCITY = -400.0
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var max_jumps = 2
 @onready var jumps_left = max_jumps
-
+@onready var controls_enabled = true
 
 	
 func _ready():
 	jumps_left = max_jumps
+	controls_enabled = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	if controls_enabled == false:
+		return
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
@@ -54,4 +58,16 @@ func update_animation(direction):
 	elif direction > 0:
 		anim_sprite.flip_h = false
 	
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	anim_sprite.play("death")
+	controls_enabled = false
+	$Timer.start()
+		
 	
+
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()
