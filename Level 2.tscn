@@ -306,7 +306,7 @@ texture = ExtResource("3_4ew63")
 script = ExtResource("4_bi3nv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-253, -9)
+position = Vector2(-222, -10)
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_dv2v8")
 
@@ -317,7 +317,7 @@ limit_top = -235
 limit_bottom = 150
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-255, -13)
+position = Vector2(-223, -11)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_5nhn4")
 animation = &"jump"
