@@ -150,7 +150,7 @@ animations = [{
 radius = 110.0
 height = 460.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1xjbt"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy3yb"]
 texture = ExtResource("1_d1jbf")
 0:0/0 = 0
 6:0/0 = 0
@@ -666,7 +666,7 @@ texture = ExtResource("1_d1jbf")
 
 [sub_resource type="TileSet" id="TileSet_vy3yb"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_1xjbt")
+sources/0 = SubResource("TileSetAtlasSource_vy3yb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vy3yb"]
 size = Vector2(7258, 66)
