@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ex5u2jldgqk"]
+
+[ext_resource type="Texture2D" path="res://drawings/startScreen.PNG" id="1_y7k74"]
+
+[node name="StartScreen" type="Node2D"]
+
+[node name="StartScreen" type="Sprite2D" parent="."]
+position = Vector2(-6.5000076, 4.499998)
+scale = Vector2(1.1026042, 1.1064814)
+texture = ExtResource("1_y7k74")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.55, 0.55)
