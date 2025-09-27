@@ -5,15 +5,25 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @onready var anim_sprite = $AnimatedSprite2D
+@onready var max_jumps = 2
+@onready var jumps_left = max_jumps
+
+
 	
+func _ready():
+	jumps_left = max_jumps
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		jumps_left = max_jumps  # Reset jumps when on ground
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and jumps_left >0:
 		velocity.y = JUMP_VELOCITY
+		jumps_left -= 1
 		
 	if Input.is_action_just_pressed("change scene"):
 		get_tree().change_scene_to_file("res://Level 2.tscn")
