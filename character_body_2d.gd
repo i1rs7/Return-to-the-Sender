@@ -75,4 +75,5 @@ func _on_timer_timeout() -> void:
 
 func _on_cure_body_entered(body: Node2D) -> void:
 	print('got cure')
+	anim_sprite.play("happy")
 	controls_enabled = false
