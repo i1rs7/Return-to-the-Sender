@@ -29,8 +29,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jumps_left -= 1
 		
-	if Input.is_action_just_pressed("change scene"):
-		get_tree().change_scene_to_file("res://Level 2.tscn")
+	#if Input.is_action_just_pressed("change scene"):
+		#get_tree().change_scene_to_file("res://Level 2.tscn")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -77,4 +77,5 @@ func _on_cure_body_entered(body: Node2D) -> void:
 	print('got cure')
 	anim_sprite.play("happy")
 	controls_enabled = false
+	get_tree().change_scene_to_file("res://Level 2.tscn")
 	
