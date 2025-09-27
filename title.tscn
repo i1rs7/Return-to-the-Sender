@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://c8ex5u2jldgqk"]
+[gd_scene load_steps=45 format=4 uid="uid://c8ex5u2jldgqk"]
 
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_16uvt"]
 [ext_resource type="Texture2D" uid="uid://bc082gp5oil08" path="res://Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="2_upcoo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dwsl11ln6kapd" path="res://CharacterAnimations/Jump.png" id="9_01k44"]
 [ext_resource type="Texture2D" uid="uid://f8manbwbons5" path="res://CharacterAnimations/Run.png" id="10_ynqpd"]
 [ext_resource type="TileSet" uid="uid://dp307fauy7ogj" path="res://Level 1.tres" id="11_oyroy"]
+[ext_resource type="Texture2D" uid="uid://l6yk0ks65v6v" path="res://Cures/32x32/Green.png" id="12_upcoo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hnp4"]
 atlas = ExtResource("5_dno37")
@@ -240,6 +241,9 @@ size = Vector2(35, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sufmp"]
 size = Vector2(528, 7)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjryj"]
+radius = 15.033297
+
 [node name="Node2D2" type="Node2D"]
 
 [node name="Parallax" type="Node2D" parent="."]
@@ -267,7 +271,7 @@ repeat_times = 3
 texture = ExtResource("3_gjryj")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(-185, 5)
+position = Vector2(1074, 50)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("4_3ranr")
@@ -289,6 +293,7 @@ shape = SubResource("CapsuleShape2D_1405j")
 zoom = Vector2(3, 3)
 limit_left = -285
 limit_top = -235
+limit_right = 1240
 limit_bottom = 144
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
@@ -325,7 +330,20 @@ shape = SubResource("RectangleShape2D_0eqsl")
 position = Vector2(783, 115)
 shape = SubResource("RectangleShape2D_sufmp")
 
+[node name="cure" type="Area2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="cure"]
+position = Vector2(1137.0001, 67.00001)
+scale = Vector2(0.5694495, 0.5814108)
+texture = ExtResource("12_upcoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cure"]
+position = Vector2(1137.0001, 67.00001)
+scale = Vector2(0.5694495, 0.5814108)
+shape = SubResource("CircleShape2D_gjryj")
+
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="cure" to="CharacterBody2D" method="_on_cure_body_entered"]
