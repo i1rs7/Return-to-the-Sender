@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://fpfu7jpjgsag"]
+[gd_scene load_steps=50 format=4 uid="uid://fpfu7jpjgsag"]
 
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_vy3yb"]
@@ -13,7 +13,10 @@
 [ext_resource type="TileSet" uid="uid://dp307fauy7ogj" path="res://Level 1.tres" id="10_gmd7o"]
 [ext_resource type="Texture2D" uid="uid://l6yk0ks65v6v" path="res://Cures/32x32/Green.png" id="12_sufmp"]
 [ext_resource type="Texture2D" uid="uid://6gdf0bctbl74" path="res://drawn assets/IMG_0525.PNG" id="13_6vgnj"]
+[ext_resource type="Script" uid="uid://5gkp0glrmdyj" path="res://ui.gd" id="13_hcsjw"]
 [ext_resource type="Texture2D" uid="uid://b7u1npclk20tx" path="res://drawn assets/IMG_0523.PNG" id="14_hcsjw"]
+[ext_resource type="Texture2D" uid="uid://dexmqlc7ab8jr" path="res://drawn assets/IMG_0524.PNG" id="16_7sjwh"]
+[ext_resource type="Texture2D" uid="uid://b3s1jd7s5kqbn" path="res://drawn assets/IMG_0526.PNG" id="17_7fqoy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hnp4"]
 atlas = ExtResource("6_0eqsl")
@@ -344,27 +347,61 @@ scale = Vector2(0.5694495, 0.5814108)
 shape = SubResource("CircleShape2D_ilcng")
 
 [node name="UI" type="Container" parent="."]
-offset_left = 951.0
-offset_top = -37.0
-offset_right = 1227.0
-offset_bottom = 90.0
+offset_left = 999.0
+offset_top = -10.0
+offset_right = 1275.0
+offset_bottom = 117.0
+script = ExtResource("13_hcsjw")
 
-[node name="Img0525" type="Sprite2D" parent="UI"]
+[node name="dash" type="Sprite2D" parent="UI"]
 position = Vector2(187, 69)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("13_6vgnj")
 
-[node name="Img0523" type="Sprite2D" parent="UI"]
+[node name="double jumps" type="Sprite2D" parent="UI"]
 position = Vector2(63.999977, 67)
 scale = Vector2(0.05966797, 0.05527344)
 texture = ExtResource("14_hcsjw")
 
+[node name="Timer" type="Timer" parent="UI"]
+one_shot = true
+
+[node name="nodoublejumps" type="Sprite2D" parent="UI"]
+visible = false
+position = Vector2(64.000015, 67)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("16_7sjwh")
+
+[node name="nodash" type="Sprite2D" parent="UI"]
+visible = false
+position = Vector2(190, 67)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("17_7fqoy")
+
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 2
-text = "You got a cure! But you have to lose one of your abilities..."
+text = "You got a cure! But you have to lose an ability..."
+
+[node name="delete double jump" type="Button" parent="."]
+offset_left = 1023.0
+offset_top = 20.0
+offset_right = 1031.0
+offset_bottom = 28.0
+scale = Vector2(10.545404, 9.408014)
+flat = true
+
+[node name="delete dash" type="Button" parent="."]
+offset_left = 1145.0
+offset_top = 19.0
+offset_right = 1229.0
+offset_bottom = 96.0
+flat = true
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="cure" to="CharacterBody2D" method="_on_cure_body_entered"]
+[connection signal="timeout" from="UI/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="pressed" from="delete double jump" to="CharacterBody2D" method="_on_delete_double_jump_pressed"]
+[connection signal="pressed" from="delete dash" to="CharacterBody2D" method="_on_delete_dash_pressed"]

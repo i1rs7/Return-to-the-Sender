@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+@onready var SPEED = 450.0
 const JUMP_VELOCITY = -400.0
 
 @onready var anim_sprite = $AnimatedSprite2D
@@ -70,12 +70,27 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Level 2.tscn")
 
 
 func _on_cure_body_entered(body: Node2D) -> void:
 	print('got cure')
 	anim_sprite.play("happy")
 	controls_enabled = false
-	get_tree().change_scene_to_file("res://Level 2.tscn")
+	$"../UI".show()
 	
+
+
+
+func _on_delete_dash_pressed() -> void:
+	SPEED = 300.0
+	$"../UI/dash".hide()
+	$"../UI/nodash".show()
+	print('no dash')
+
+
+func _on_delete_double_jump_pressed() -> void:
+	max_jumps = 1
+	$"../UI/double jumps".hide()
+	$"../UI/nodoublejumps".show()
+	$"../UI/Timer".start()
