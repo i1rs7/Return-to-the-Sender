@@ -1,6 +1,5 @@
-[gd_scene load_steps=35 format=4 uid="uid://fpfu7jpjgsag"]
+[gd_scene load_steps=43 format=4 uid="uid://fpfu7jpjgsag"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_ivlpf"]
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_vy3yb"]
 [ext_resource type="Texture2D" uid="uid://bc082gp5oil08" path="res://Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="2_1405j"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://drbvn3j1ijhdq" path="res://Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="3_ivlpf"]
 [ext_resource type="Texture2D" uid="uid://bkv1wxbshxjxj" path="res://CharacterAnimations/RecieveDamage.png" id="6_0eqsl"]
 [ext_resource type="Texture2D" uid="uid://f8manbwbons5" path="res://CharacterAnimations/Run.png" id="7_1405j"]
+[ext_resource type="Texture2D" uid="uid://baotpsko8htyl" path="res://CharacterAnimations/Die.png" id="7_sufmp"]
 [ext_resource type="Texture2D" uid="uid://dwsl11ln6kapd" path="res://CharacterAnimations/Jump.png" id="8_gmd7o"]
 [ext_resource type="TileSet" uid="uid://dp307fauy7ogj" path="res://Level 1.tres" id="10_gmd7o"]
 
@@ -27,6 +27,30 @@ region = Rect2(1024, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5euc"]
 atlas = ExtResource("6_0eqsl")
 region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc0eq"]
+atlas = ExtResource("7_sufmp")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhtn6"]
+atlas = ExtResource("7_sufmp")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhx1d"]
+atlas = ExtResource("7_sufmp")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t86ul"]
+atlas = ExtResource("7_sufmp")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ebfl"]
+atlas = ExtResource("7_sufmp")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn3rh"]
+atlas = ExtResource("7_sufmp")
+region = Rect2(2560, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1jbf"]
 atlas = ExtResource("1_va7m3")
@@ -113,6 +137,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tc0eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhtn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhx1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t86ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ebfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn3rh")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_d1jbf")
 }, {
 "duration": 1.0,
@@ -187,8 +234,13 @@ height = 460.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vy3yb"]
 size = Vector2(7258, 66)
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_ivlpf")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eqsl"]
+size = Vector2(35, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sufmp"]
+size = Vector2(528, 7)
+
+[node name="Node2D2" type="Node2D"]
 
 [node name="Parallax" type="Node2D" parent="."]
 position = Vector2(739, -51)
@@ -215,14 +267,17 @@ repeat_times = 3
 texture = ExtResource("3_ivlpf")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(-236, 14)
+position = Vector2(-185, 5)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("2_hi2wx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(-1, 3)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_ojd4g")
-animation = &"jump"
+animation = &"death"
+frame_progress = 0.21850201
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 5)
@@ -252,3 +307,18 @@ tile_set = ExtResource("10_gmd7o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(3309, 179)
 shape = SubResource("RectangleShape2D_vy3yb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(278, 39)
+shape = SubResource("RectangleShape2D_0eqsl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(783, 115)
+shape = SubResource("RectangleShape2D_sufmp")
+
+[connection signal="area_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
