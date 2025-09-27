@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8ex5u2jldgqk"]
 
-[ext_resource type="Script" uid="uid://djm4oy672ic8f" path="res://title.gd" id="1_oyqm6"]
+[ext_resource type="Script" path="res://title.gd" id="1_oyqm6"]
 [ext_resource type="Texture2D" uid="uid://c40wac46keskn" path="res://drawn assets/IMG_0519.PNG" id="1_y7k74"]
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_oyqm6")
 
 [node name="StartScreen" type="Sprite2D" parent="."]
-position = Vector2(-6.5000076, 4.499998)
-scale = Vector2(1.1026042, 1.1064814)
+position = Vector2(-6.50001, 4.5)
+scale = Vector2(1.1026, 1.10648)
 texture = ExtResource("1_y7k74")
 
 [node name="Camera2D" type="Camera2D" parent="."]
