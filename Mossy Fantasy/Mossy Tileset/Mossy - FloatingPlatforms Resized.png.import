@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwsl11ln6kapd"
-path="res://.godot/imported/Jump.png-9f38d65bf449e2361922296bb61b7a7a.ctex"
+uid="uid://bsaok2dvl8qmv"
+path="res://.godot/imported/Mossy - FloatingPlatforms Resized.png-db000ac7e307fa054ccd963341c70ae1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CharacterAnimations/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-9f38d65bf449e2361922296bb61b7a7a.ctex"]
+source_file="res://Mossy Fantasy/Mossy Tileset/Mossy - FloatingPlatforms Resized.png"
+dest_files=["res://.godot/imported/Mossy - FloatingPlatforms Resized.png-db000ac7e307fa054ccd963341c70ae1.ctex"]
 
 [params]
 
