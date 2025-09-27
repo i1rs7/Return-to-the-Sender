@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8ex5u2jldgqk"]
 
-[ext_resource type="Texture2D" path="res://drawings/startScreen.PNG" id="1_y7k74"]
+[ext_resource type="Texture2D" uid="uid://bu5so8e7y0jnv" path="res://startScreen.tres" id="1_y7k74"]
 
 [node name="StartScreen" type="Node2D"]
 
