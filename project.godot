@@ -13,7 +13,11 @@ config_version=5
 config/name="Daydream NYC Game"
 run/main_scene="uid://djn5y7bxk41vt"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Export/icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [input]
 
