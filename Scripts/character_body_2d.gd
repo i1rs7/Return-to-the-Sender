@@ -66,7 +66,14 @@ func _physics_process(delta: float) -> void:
 	#Handle dash.
 	if Input.is_action_just_pressed("dash") and can_dash:
 		start_dash(direction, anim_sprite.flip_h)
-	print(is_dashing)
+	
+	#debug change scene
+	if Input.is_action_just_pressed("change_scene"):
+		if get_tree().current_scene.name == "Level 1":
+			get_tree().change_scene_to_file("res://Scenes/Level 2.tscn")
+		else: 
+			get_tree().change_scene_to_file("res://Scenes/Level 1.tscn")
+	
 	move_and_slide()
 	update_animation(direction)
 
