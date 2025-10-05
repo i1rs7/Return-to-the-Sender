@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 
-@onready var SPEED = 450.0
-const JUMP_VELOCITY = -400.0
+@onready var SPEED = 300.0
+const JUMP_VELOCITY = -300.0
 
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var max_jumps = 2
+@onready var max_dash = 2
+@onready var dash_left = max_dash
 @onready var jumps_left = max_jumps
 @onready var controls_enabled = true
 
@@ -29,9 +31,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jumps_left -= 1
 		
-	#if Input.is_action_just_pressed("change scene"):
-		#get_tree().change_scene_to_file("res://Level 2.tscn")
-
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -70,7 +70,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://Level 2.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Level 1.tscn")
 
 
 func _on_cure_body_entered(body: Node2D) -> void:
@@ -83,16 +83,17 @@ func _on_cure_body_entered(body: Node2D) -> void:
 
 
 func _on_delete_dash_pressed() -> void:
-	SPEED = 300.0
+	max_dash = 1
 	$"../UI/dash".hide()
 	$"../UI/nodash".show()
 	print('no dash')
-	get_tree().change_scene_to_file("res://Level 2.tscn")
-
-
+	$"../UI/L1_Change_Scene".start()
+	
 func _on_delete_double_jump_pressed() -> void:
 	max_jumps = 1
-	$"../UI/double jumps".hide()
-	$"../UI/nodoublejumps".show()
-	$"../UI/Timer".start()
-	get_tree().change_scene_to_file("res://Level 2.tscn")
+	$"../UI/doublejump".hide()
+	$"../UI/nodoublejump".show()
+	$"../UI/L1_Change_Scene".start()
+	
+func _on_l_1_change_scene_timeout() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Level 2.tscn")
