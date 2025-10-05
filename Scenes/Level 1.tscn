@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://fpfu7jpjgsag"]
+[gd_scene load_steps=52 format=4 uid="uid://fpfu7jpjgsag"]
 
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://Assets/CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_vy3yb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://du32yyamw7mbs" path="res://Scripts/character_body_2d.gd" id="2_hi2wx"]
 [ext_resource type="Texture2D" uid="uid://drbvn3j1ijhdq" path="res://Assets/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="3_ivlpf"]
 [ext_resource type="Texture2D" uid="uid://bkv1wxbshxjxj" path="res://Assets/CharacterAnimations/RecieveDamage.png" id="6_0eqsl"]
+[ext_resource type="Texture2D" uid="uid://bar6sybdhad8b" path="res://Assets/CharacterAnimations/Attack.png" id="6_2tqua"]
 [ext_resource type="Texture2D" uid="uid://f8manbwbons5" path="res://Assets/CharacterAnimations/Run.png" id="7_1405j"]
 [ext_resource type="Texture2D" uid="uid://baotpsko8htyl" path="res://Assets/CharacterAnimations/Die.png" id="7_sufmp"]
 [ext_resource type="Texture2D" uid="uid://dwsl11ln6kapd" path="res://Assets/CharacterAnimations/Jump.png" id="8_gmd7o"]
@@ -32,6 +33,10 @@ region = Rect2(1024, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5euc"]
 atlas = ExtResource("6_0eqsl")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho4pc"]
+atlas = ExtResource("6_2tqua")
 region = Rect2(1536, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tc0eq"]
@@ -139,6 +144,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho4pc")
+}],
+"loop": true,
+"name": &"dash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -252,7 +265,8 @@ radius = 15.033297
 [node name="Level 1" type="Node2D"]
 
 [node name="ParallaxBg" type="Node2D" parent="."]
-position = Vector2(739, -51)
+position = Vector2(982.99994, -107)
+scale = Vector2(1.25, 1.25)
 
 [node name="Parallax2D" type="Parallax2D" parent="ParallaxBg"]
 scroll_scale = Vector2(0.5, 1)
@@ -277,6 +291,7 @@ texture = ExtResource("3_ivlpf")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-260, 5)
+scale = Vector2(0.9, 0.9)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("2_hi2wx")
@@ -285,9 +300,7 @@ script = ExtResource("2_hi2wx")
 position = Vector2(-1, 3)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_ojd4g")
-animation = &"death"
-frame = 5
-frame_progress = 1.0
+animation = &"dash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1, 5)
@@ -300,8 +313,14 @@ limit_left = -285
 limit_top = -235
 limit_bottom = 144
 
-[node name="Timer" type="Timer" parent="CharacterBody2D"]
+[node name="Death" type="Timer" parent="CharacterBody2D"]
 wait_time = 1.5
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="CharacterBody2D"]
+one_shot = true
+
+[node name="Dash" type="Timer" parent="CharacterBody2D"]
 one_shot = true
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
@@ -398,7 +417,9 @@ offset_bottom = 96.0
 flat = true
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/Death" to="CharacterBody2D" method="_on_death_timeout"]
+[connection signal="timeout" from="CharacterBody2D/DashCooldown" to="CharacterBody2D" method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="CharacterBody2D/Dash" to="CharacterBody2D" method="_on_dash_timeout"]
 [connection signal="area_entered" from="DeathCollision" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="DeathCollision" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Cure" to="CharacterBody2D" method="_on_cure_body_entered"]
