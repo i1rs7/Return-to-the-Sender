@@ -29,6 +29,17 @@ const JUMP_VELOCITY = -300.0
 	
 func _ready():
 	$Walk.play()
+ 	
+	if Global.lives_left == 2:
+		$Ghost3.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+	elif Global.lives_left == 1:
+		$Ghost3.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+		$Ghost2.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+	elif Global.lives_left == 0: 
+		$Ghost3.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+		$Ghost2.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+		$Ghost1.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+	
 	#double jump
 	jumps_left = Global.max_jumps
 	
@@ -133,23 +144,31 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	$Splash.play()
 	anim_sprite.play("death")
 	controls_enabled = false
-	$Death.start()
 	Global.lives_left -= 1
-	if Global.lives_left > 0:
-		get_tree().reload_current_scene() # Reload the scene if lives remain
-	else:
-		print("Game Over!")
-		
+	if Global.lives_left == 2:
+		$Ghost3.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+	elif Global.lives_left == 1:
+		$Ghost3.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+		$Ghost2.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+	elif Global.lives_left == 0: 
+		$Ghost3.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+		$Ghost2.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+		$Ghost1.texture = preload("res://Assets/drawn assets/HurtGhost.png")
+	$Death.start()
 
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Level 1.tscn")
+	if Global.lives_left == 0:
+		get_tree().change_scene_to_file("res://Scenes/Level 2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Level 1.tscn")
 
 
 func _on_cure_body_entered(body: Node2D) -> void:
 	anim_sprite.play("happy")
 	controls_enabled = false
 	$"../UI".show()
+	Global.cures_obtained += 1
 	
 
 
@@ -171,10 +190,24 @@ func _on_l_1_change_scene_timeout() -> void:
 
 
 func _on_death_timeout() -> void:
-	get_tree().reload_current_scene()
+	if Global.lives_left == 0:
+		get_tree().change_scene_to_file("res://Scenes/Level 2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Level 1.tscn")
 
 
 func _on_cure_flower_body_entered(body: Node2D) -> void:
 	anim_sprite.play("happy")
 	controls_enabled = false
-	get_tree().change_scene_to_file("res://Scenes/goodEnding.tscn")
+	Global.cures_obtained += 1
+	$Death.start()
+	
+	
+
+
+func _on_l2_death_timeout() -> void:
+	if Global.lives_left == 0:
+		print("bad ending")
+		get_tree().change_scene_to_file("res://Scenes/goodEnding.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/goodEnding.tscn")
