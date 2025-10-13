@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-const levels_music = preload("res://Assets/soundEffects/Clement Panchout _ Journey _ 2017.wav")
+const levels_music = preload("res://Assets/soundEffects/bgmusic.mp3")
 
 func play_music(music: AudioStream, volume = -20.0):
 	if stream == music: 

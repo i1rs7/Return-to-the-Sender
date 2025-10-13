@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://bmttq2lnddfwb"]
+[gd_scene load_steps=55 format=4 uid="uid://bmttq2lnddfwb"]
 
 [ext_resource type="Texture2D" uid="uid://bne7p4mevepe3" path="res://Assets/Mossy Fantasy/Mossy Tileset/Background.jpg" id="1_4ew63"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_cl68u"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://cwinmd3mcfno3" path="res://Assets/soundEffects/jump.mp3" id="17_r6jdp"]
 [ext_resource type="AudioStream" uid="uid://c8vth6auu6oab" path="res://Assets/soundEffects/walk water.mp3" id="18_7fwia"]
 [ext_resource type="AudioStream" uid="uid://bsh7maux3ewdf" path="res://Assets/soundEffects/dash.mp3" id="19_7fwia"]
+[ext_resource type="Texture2D" uid="uid://byjd63rgtq0wi" path="res://Assets/drawn assets/ghostWithLight.png" id="20_r6jdp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p24lo"]
 texture = ExtResource("3_bi3nv")
@@ -454,12 +455,27 @@ volume_db = -5.0
 stream = ExtResource("19_7fwia")
 volume_db = 20.0
 
+[node name="Ghost1" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-15.711121, -29.177778)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("20_r6jdp")
+
+[node name="Ghost3" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(15.555559, -28.888887)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("20_r6jdp")
+
+[node name="Ghost2" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -28.88889)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("20_r6jdp")
+
 [node name="UI" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 
 [connection signal="body_entered" from="CureFlower" to="CharacterBody2D" method="_on_cure_flower_body_entered"]
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="CharacterBody2D/Death" to="CharacterBody2D" method="_on_death_timeout"]
+[connection signal="timeout" from="CharacterBody2D/Death" to="CharacterBody2D" method="_on_l2_death_timeout"]
 [connection signal="timeout" from="CharacterBody2D/DashCooldown" to="CharacterBody2D" method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="CharacterBody2D/Dash" to="CharacterBody2D" method="_on_dash_timeout"]

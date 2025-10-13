@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://fpfu7jpjgsag"]
+[gd_scene load_steps=61 format=4 uid="uid://fpfu7jpjgsag"]
 
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://Assets/CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_vy3yb"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://cwinmd3mcfno3" path="res://Assets/soundEffects/jump.mp3" id="16_s5fro"]
 [ext_resource type="AudioStream" uid="uid://djodp46owpk04" path="res://Assets/soundEffects/walk leaves.mp3" id="17_4kr7n"]
 [ext_resource type="Texture2D" uid="uid://cq50ugo2mh7rl" path="res://Assets/drawn assets/IMG_0526.PNG" id="17_7fqoy"]
+[ext_resource type="Texture2D" uid="uid://byjd63rgtq0wi" path="res://Assets/drawn assets/ghostWithLight.png" id="19_s5fro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hnp4"]
 atlas = ExtResource("6_0eqsl")
@@ -365,6 +366,21 @@ volume_db = 20.0
 [node name="Dash2" type="AudioStreamPlayer" parent="CharacterBody2D"]
 stream = ExtResource("15_31o0n")
 volume_db = 20.0
+
+[node name="Ghost1" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-15.711121, -29.177778)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("19_s5fro")
+
+[node name="Ghost3" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(15.555559, -28.888887)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("19_s5fro")
+
+[node name="Ghost2" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -28.88889)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("19_s5fro")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(15, -2)
