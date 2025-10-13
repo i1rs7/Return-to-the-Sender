@@ -4,5 +4,4 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 volume_db = -35.643
-autoplay = true
 script = ExtResource("1_4m5bw")
