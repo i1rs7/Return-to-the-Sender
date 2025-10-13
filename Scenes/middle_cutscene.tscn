@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5vrwqlxlupvs"]
+[gd_scene load_steps=14 format=3 uid="uid://c5vrwqlxlupvs"]
 
+[ext_resource type="Script" uid="uid://dyhrnccf7sawr" path="res://Scenes/middle_cutscene.gd" id="1_1cx2e"]
 [ext_resource type="Texture2D" uid="uid://bsmmhyean18n0" path="res://Assets/drawn assets/Black.png" id="1_d3sxw"]
 [ext_resource type="Texture2D" uid="uid://83i2d47jspgx" path="res://Assets/drawn assets/Untitled_Artwork.png" id="2_bj2ml"]
 [ext_resource type="Texture2D" uid="uid://byy7gd8ooh78a" path="res://Assets/drawn assets/IMG_0523.PNG" id="3_wppfa"]
@@ -851,6 +852,7 @@ _data = {
 }
 
 [node name="MiddleCutscene" type="Node2D"]
+script = ExtResource("1_1cx2e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -889,14 +891,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Button" type="Button" parent="."]
-offset_left = 292.00003
-offset_top = 245.0
-offset_right = 486.00003
-offset_bottom = 276.0
-scale = Vector2(1.3, 1.3)
-text = "SKIP"
 
 [node name="line1" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -1021,3 +1015,20 @@ texture = ExtResource("7_r2wp0")
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 2
 text = "You got a cure! But you have to lose an ability..."
+
+[node name="LOSE DOUBLE JUMP" type="Button" parent="."]
+offset_left = -261.0
+offset_top = 235.0
+offset_right = -74.0
+offset_bottom = 281.0
+text = "LOSE DOUBLE JUMP"
+
+[node name="LOSE DASH" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 235.0
+offset_right = 237.0
+offset_bottom = 281.0
+text = "LOSE DASH"
+
+[connection signal="pressed" from="LOSE DOUBLE JUMP" to="." method="_on_lose_double_jump_pressed"]
+[connection signal="pressed" from="LOSE DASH" to="." method="_on_lose_dash_pressed"]
