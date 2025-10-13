@@ -167,9 +167,8 @@ func _on_timer_timeout() -> void:
 func _on_cure_body_entered(body: Node2D) -> void:
 	anim_sprite.play("happy")
 	controls_enabled = false
-	$"../UI".show()
 	Global.cures_obtained += 1
-	get_tree().change_scene_to_file("res://Scenes/middle_cutscene.tscn")
+	$"../UI/L1_Change_Scene".start()
 	
 
 
@@ -187,7 +186,7 @@ func _on_delete_double_jump_pressed() -> void:
 	$"../UI/L1_Change_Scene".start()
 	
 func _on_l_1_change_scene_timeout() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Level 2.tscn")
+	get_tree().change_scene_to_file("res://Scenes/middle_cutscene.tscn")
 
 
 func _on_death_timeout() -> void:
