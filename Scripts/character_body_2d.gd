@@ -169,3 +169,9 @@ func _on_l_1_change_scene_timeout() -> void:
 
 func _on_death_timeout() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_cure_flower_body_entered(body: Node2D) -> void:
+	anim_sprite.play("happy")
+	controls_enabled = false
+	get_tree().change_scene_to_file("res://Scenes/goodEnding.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://bmttq2lnddfwb"]
+[gd_scene load_steps=54 format=4 uid="uid://bmttq2lnddfwb"]
 
 [ext_resource type="Texture2D" uid="uid://bne7p4mevepe3" path="res://Assets/Mossy Fantasy/Mossy Tileset/Background.jpg" id="1_4ew63"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_cl68u"]
@@ -93,8 +93,11 @@ sources/0 = SubResource("TileSetAtlasSource_p24lo")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jen0v"]
 size = Vector2(7258, 66)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fwia"]
+size = Vector2(118.4, 409.30002)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dv2v8"]
-radius = 13.152946
+radius = 26.019224
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hnp4"]
 atlas = ExtResource("7_6khxn")
@@ -384,15 +387,19 @@ position = Vector2(0.6, -29.4)
 position = Vector2(3309, 179)
 shape = SubResource("RectangleShape2D_jen0v")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1207.4, -23.6)
+shape = SubResource("RectangleShape2D_7fwia")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="CureFlower" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CureFlower"]
 position = Vector2(744, -174)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("13_dv2v8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(745, -173)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CureFlower"]
+position = Vector2(745, -177)
 shape = SubResource("CircleShape2D_dv2v8")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -417,6 +424,7 @@ shape = SubResource("CapsuleShape2D_5vonu")
 zoom = Vector2(3, 3)
 limit_left = -285
 limit_top = -325
+limit_right = 1150
 limit_bottom = 144
 
 [node name="Death" type="Timer" parent="CharacterBody2D"]
@@ -439,12 +447,17 @@ volume_db = -5.0
 
 [node name="Walk" type="AudioStreamPlayer" parent="CharacterBody2D"]
 stream = ExtResource("18_7fwia")
-volume_db = 10.0
+volume_db = -5.0
 
 [node name="Dash2" type="AudioStreamPlayer" parent="CharacterBody2D"]
 stream = ExtResource("19_7fwia")
 volume_db = 20.0
 
+[node name="UI" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="CureFlower" to="CharacterBody2D" method="_on_cure_flower_body_entered"]
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="CharacterBody2D/Death" to="CharacterBody2D" method="_on_death_timeout"]
 [connection signal="timeout" from="CharacterBody2D/DashCooldown" to="CharacterBody2D" method="_on_dash_cooldown_timeout"]
