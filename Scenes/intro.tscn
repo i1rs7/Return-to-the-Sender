@@ -480,7 +480,7 @@ offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
-text = "it's destorying because of the inbalance of energy."
+text = "as it's getting destroyed because of the inbalance of energy."
 
 [node name="line3" type="Label" parent="."]
 visible = false
