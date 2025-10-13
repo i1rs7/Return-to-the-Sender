@@ -82,9 +82,9 @@ func _physics_process(delta: float) -> void:
 	#debug change scene
 	if Input.is_action_just_pressed("change_scene"):
 		if get_tree().current_scene.name == "Level 1":
-			get_tree().change_scene_to_file("res://Scenes/middle_cutscene.tscn")
+			get_tree().change_scene_to_file("res://Scenes/goodEnding.tscn")
 		else: 
-			get_tree().change_scene_to_file("res://Scenes/middle_cutscene.tscn")
+			get_tree().change_scene_to_file("res://Scenes/goodEnding.tscn")
 	
 	move_and_slide()
 	update_animation(direction)
