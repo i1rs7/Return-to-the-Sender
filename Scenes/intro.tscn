@@ -425,8 +425,7 @@ texture = ExtResource("2_7a8ye")
 
 [node name="text1" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5

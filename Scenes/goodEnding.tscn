@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c432ptejdqfqd"]
+
+[ext_resource type="Texture2D" uid="uid://bsmmhyean18n0" path="res://Assets/drawn assets/Black.png" id="1_dmh3q"]
+[ext_resource type="Texture2D" uid="uid://cijoe6y1hmqqr" path="res://Assets/drawn assets/IMG_0520.PNG" id="2_iggq8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="blackBackground" type="Sprite2D" parent="."]
+position = Vector2(219.00002, 100)
+scale = Vector2(6.4609375, 4.5117188)
+texture = ExtResource("1_dmh3q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(178, 115.99999)
+scale = Vector2(0.39696762, 0.4031775)
+texture = ExtResource("2_iggq8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(180, 105)
+scale = Vector2(6.4609375, 4.5117188)
