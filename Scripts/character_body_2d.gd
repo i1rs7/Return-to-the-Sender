@@ -134,6 +134,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	anim_sprite.play("death")
 	controls_enabled = false
 	$Death.start()
+	Global.lives_left -= 1
+	if Global.lives_left > 0:
+		get_tree().reload_current_scene() # Reload the scene if lives remain
+	else:
+		print("Game Over!")
 		
 
 
