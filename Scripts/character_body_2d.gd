@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_up") and jumps_left > 0:
 		velocity.y = JUMP_VELOCITY
 		jumps_left -= 1
+		$Jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
@@ -62,6 +63,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$Walk.play()
 
 	#Handle dash.
 	if Input.is_action_just_pressed("dash") and can_dash:
@@ -88,6 +90,7 @@ func update_animation(direction):
 			anim_sprite.play("walk")
 	else:
 		anim_sprite.play("idle")
+		
 
 	# Flip sprite if moving left
 	if direction < 0:
@@ -127,6 +130,7 @@ func _on_dash_cooldown_timeout() -> void:
 #DASH DONE
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	$Splash.play()
 	anim_sprite.play("death")
 	controls_enabled = false
 	$Death.start()

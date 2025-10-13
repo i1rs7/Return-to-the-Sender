@@ -1,5 +1,5 @@
 extends Node
 
+
 func _ready() -> void:
-	#BackgroundMusic._play_music_level()
-	pass
+	Sounds.play_bg_music()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://fpfu7jpjgsag"]
+[gd_scene load_steps=59 format=4 uid="uid://fpfu7jpjgsag"]
 
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://Assets/CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_vy3yb"]
@@ -19,8 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://8xbdo541lmf5" path="res://Assets/drawn assets/IMG_0525.PNG" id="13_6vgnj"]
 [ext_resource type="Script" uid="uid://5gkp0glrmdyj" path="res://Scripts/ui.gd" id="13_hcsjw"]
 [ext_resource type="Texture2D" uid="uid://byy7gd8ooh78a" path="res://Assets/drawn assets/IMG_0523.PNG" id="14_hcsjw"]
+[ext_resource type="AudioStream" uid="uid://bkipj20tp1ui4" path="res://Assets/soundEffects/splash-6213.mp3" id="15_06g8x"]
 [ext_resource type="Texture2D" uid="uid://ujkffoj3n7ib" path="res://Assets/drawn assets/IMG_0524.PNG" id="16_7sjwh"]
+[ext_resource type="AudioStream" uid="uid://bvykw65ww0lm" path="res://Assets/soundEffects/pixel-jump-319167.mp3" id="16_32kvr"]
 [ext_resource type="Texture2D" uid="uid://cq50ugo2mh7rl" path="res://Assets/drawn assets/IMG_0526.PNG" id="17_7fqoy"]
+[ext_resource type="AudioStream" uid="uid://djodp46owpk04" path="res://Assets/soundEffects/walking-on-leaves-260279.mp3" id="17_s5fro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hnp4"]
 atlas = ExtResource("6_0eqsl")
@@ -346,6 +349,17 @@ one_shot = true
 
 [node name="Dash" type="Timer" parent="CharacterBody2D"]
 one_shot = true
+
+[node name="Splash" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("15_06g8x")
+volume_db = 20.0
+
+[node name="Jump" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("16_32kvr")
+
+[node name="Walk" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("17_s5fro")
+volume_db = 20.0
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(15, -2)
