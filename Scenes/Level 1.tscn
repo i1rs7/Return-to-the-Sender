@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://fpfu7jpjgsag"]
+[gd_scene load_steps=56 format=4 uid="uid://fpfu7jpjgsag"]
 
 [ext_resource type="Texture2D" uid="uid://cc2a0a4dw07wy" path="res://Assets/CharacterAnimations/Happy.png" id="1_va7m3"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_vy3yb"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://oliv5m37v1ts" path="res://Assets/CharacterAnimations/Idle.png" id="2_gvvdy"]
 [ext_resource type="Script" uid="uid://du32yyamw7mbs" path="res://Scripts/character_body_2d.gd" id="2_hi2wx"]
 [ext_resource type="Texture2D" uid="uid://drbvn3j1ijhdq" path="res://Assets/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="3_ivlpf"]
+[ext_resource type="Texture2D" uid="uid://c1eb61imagitf" path="res://Assets/drawn assets/DashHints.png" id="4_7hyjn"]
+[ext_resource type="Texture2D" uid="uid://b8p3n45jyqdkb" path="res://Assets/drawn assets/sign1.png" id="4_ho4pc"]
+[ext_resource type="Texture2D" uid="uid://e6redcwjd38b" path="res://Assets/drawn assets/DoubleJumpHints.png" id="5_f5ue1"]
 [ext_resource type="Texture2D" uid="uid://bkv1wxbshxjxj" path="res://Assets/CharacterAnimations/RecieveDamage.png" id="6_0eqsl"]
 [ext_resource type="Texture2D" uid="uid://bar6sybdhad8b" path="res://Assets/CharacterAnimations/Attack.png" id="6_2tqua"]
 [ext_resource type="Texture2D" uid="uid://f8manbwbons5" path="res://Assets/CharacterAnimations/Run.png" id="7_1405j"]
@@ -18,9 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://byy7gd8ooh78a" path="res://Assets/drawn assets/IMG_0523.PNG" id="14_hcsjw"]
 [ext_resource type="Texture2D" uid="uid://ujkffoj3n7ib" path="res://Assets/drawn assets/IMG_0524.PNG" id="16_7sjwh"]
 [ext_resource type="Texture2D" uid="uid://cq50ugo2mh7rl" path="res://Assets/drawn assets/IMG_0526.PNG" id="17_7fqoy"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tqua"]
-load_path = "res://.godot/imported/sign.png-18296a675019dd0ccd7fdb58d9d7a36d.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hnp4"]
 atlas = ExtResource("6_0eqsl")
@@ -295,11 +295,23 @@ repeat_times = 3
 [node name="FrontBg" type="Sprite2D" parent="ParallaxBg/Parallax2D3"]
 texture = ExtResource("3_ivlpf")
 
+[node name="DoubleJumpHint" type="Sprite2D" parent="."]
+position = Vector2(129.00003, 11.999996)
+rotation = 8.483e-05
+scale = Vector2(0.029513301, 0.030294027)
+texture = ExtResource("5_f5ue1")
+
+[node name="DashHint" type="Sprite2D" parent="."]
+position = Vector2(664.92334, -193.32007)
+rotation = 8.483e-05
+scale = Vector2(0.07321805, 0.07252665)
+texture = ExtResource("4_7hyjn")
+
 [node name="sign" type="Sprite2D" parent="."]
 position = Vector2(-163.99998, 10)
 rotation = 8.483e-05
 scale = Vector2(0.03799721, 0.037862003)
-texture = SubResource("CompressedTexture2D_2tqua")
+texture = ExtResource("4_ho4pc")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-260, 5)
