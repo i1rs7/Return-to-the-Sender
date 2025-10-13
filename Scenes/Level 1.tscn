@@ -12,13 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://baotpsko8htyl" path="res://Assets/CharacterAnimations/Die.png" id="7_sufmp"]
 [ext_resource type="Texture2D" uid="uid://dwsl11ln6kapd" path="res://Assets/CharacterAnimations/Jump.png" id="8_gmd7o"]
 [ext_resource type="TileSet" uid="uid://dp307fauy7ogj" path="res://Tilesets/Level 1.tres" id="10_gmd7o"]
-[ext_resource type="Texture2D" uid="uid://ckfepu044e4s1" path="res://Assets/drawn assets/Untitled_Artwork 2.png" id="12_7sjwh"]
-[ext_resource type="Texture2D" uid="uid://dspme6wq7tn1n" path="res://Assets/drawn assets/sign.png" id="12_ho4pc"]
-[ext_resource type="Texture2D" uid="uid://6gdf0bctbl74" path="res://Assets/drawn assets/IMG_0525.PNG" id="13_6vgnj"]
+[ext_resource type="Texture2D" uid="uid://cglrskxhovqgl" path="res://Assets/drawn assets/Untitled_Artwork 2.png" id="12_7sjwh"]
+[ext_resource type="Texture2D" uid="uid://8xbdo541lmf5" path="res://Assets/drawn assets/IMG_0525.PNG" id="13_6vgnj"]
 [ext_resource type="Script" uid="uid://5gkp0glrmdyj" path="res://Scripts/ui.gd" id="13_hcsjw"]
-[ext_resource type="Texture2D" uid="uid://b7u1npclk20tx" path="res://Assets/drawn assets/IMG_0523.PNG" id="14_hcsjw"]
-[ext_resource type="Texture2D" uid="uid://dexmqlc7ab8jr" path="res://Assets/drawn assets/IMG_0524.PNG" id="16_7sjwh"]
-[ext_resource type="Texture2D" uid="uid://b3s1jd7s5kqbn" path="res://Assets/drawn assets/IMG_0526.PNG" id="17_7fqoy"]
+[ext_resource type="Texture2D" uid="uid://byy7gd8ooh78a" path="res://Assets/drawn assets/IMG_0523.PNG" id="14_hcsjw"]
+[ext_resource type="Texture2D" uid="uid://ujkffoj3n7ib" path="res://Assets/drawn assets/IMG_0524.PNG" id="16_7sjwh"]
+[ext_resource type="Texture2D" uid="uid://cq50ugo2mh7rl" path="res://Assets/drawn assets/IMG_0526.PNG" id="17_7fqoy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tqua"]
+load_path = "res://.godot/imported/sign.png-18296a675019dd0ccd7fdb58d9d7a36d.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hnp4"]
 atlas = ExtResource("6_0eqsl")
@@ -297,7 +299,7 @@ texture = ExtResource("3_ivlpf")
 position = Vector2(-163.99998, 10)
 rotation = 8.483e-05
 scale = Vector2(0.03799721, 0.037862003)
-texture = ExtResource("12_ho4pc")
+texture = SubResource("CompressedTexture2D_2tqua")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-260, 5)
