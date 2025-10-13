@@ -385,12 +385,12 @@ shape = SubResource("RectangleShape2D_2tqua")
 position = Vector2(28, 2)
 
 [node name="sprite" type="Sprite2D" parent="Cure"]
-position = Vector2(1134.12, 69.380005)
-scale = Vector2(0.012812576, 0.012324214)
+position = Vector2(1131.62, 67.5)
+scale = Vector2(0.015253938, 0.014160156)
 texture = ExtResource("12_7sjwh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cure"]
-position = Vector2(1134.0001, 70.00001)
+position = Vector2(1132, 68.00001)
 scale = Vector2(0.5694495, 0.5814108)
 shape = SubResource("CircleShape2D_ilcng")
 
