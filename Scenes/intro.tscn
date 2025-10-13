@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3kgoxwf20lhv"]
 
 [ext_resource type="Script" uid="uid://mhka824uvcaa" path="res://Scripts/intro.gd" id="1_7a8ye"]
-[ext_resource type="Texture2D" uid="uid://dr2ic3le0jr4w" path="res://Assets/drawn assets/Black.png" id="1_ayt76"]
-[ext_resource type="Texture2D" uid="uid://bxrshvxhtp4ee" path="res://Assets/drawn assets/Untitled_Artwork.png" id="2_7a8ye"]
+[ext_resource type="Texture2D" uid="uid://bsmmhyean18n0" path="res://Assets/drawn assets/Black.png" id="1_ayt76"]
+[ext_resource type="Texture2D" uid="uid://83i2d47jspgx" path="res://Assets/drawn assets/Untitled_Artwork.png" id="2_7a8ye"]
 
 [sub_resource type="Animation" id="Animation_geirw"]
 length = 0.001

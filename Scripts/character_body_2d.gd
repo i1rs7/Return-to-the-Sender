@@ -114,7 +114,6 @@ func start_dash(direction, is_anim_flipped):
 		velocity.x = direction * dash_speed
 	
 func _on_dash_timeout() -> void:
-	print("dash timer timeout")
 	SPEED = NORMAL_SPEED
 	is_dashing = false
 	velocity = Vector2.ZERO # Stop the dash immediately
@@ -139,7 +138,6 @@ func _on_timer_timeout() -> void:
 
 
 func _on_cure_body_entered(body: Node2D) -> void:
-	print('got cure')
 	anim_sprite.play("happy")
 	controls_enabled = false
 	$"../UI".show()
@@ -151,7 +149,6 @@ func _on_delete_dash_pressed() -> void:
 	max_dash = 1
 	$"../UI/dash".hide()
 	$"../UI/nodash".show()
-	print('no dash')
 	$"../UI/L1_Change_Scene".start()
 	
 func _on_delete_double_jump_pressed() -> void:
