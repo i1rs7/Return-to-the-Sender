@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://83i2d47jspgx" path="res://Assets/drawn assets/Untitled_Artwork.png" id="2_7a8ye"]
 
 [sub_resource type="Animation" id="Animation_geirw"]
-length = 0.001
+length = 17.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
