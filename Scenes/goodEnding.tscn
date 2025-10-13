@@ -1,11 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c432ptejdqfqd"]
+[gd_scene load_steps=5 format=3 uid="uid://c432ptejdqfqd"]
 
 [ext_resource type="Texture2D" uid="uid://bsmmhyean18n0" path="res://Assets/drawn assets/Black.png" id="1_dfw2r"]
 [ext_resource type="Texture2D" uid="uid://cijoe6y1hmqqr" path="res://Assets/drawn assets/IMG_0520.PNG" id="2_1pifm"]
 
+[sub_resource type="Animation" id="Animation_dfw2r"]
+resource_name = "goodEnding"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1pifm"]
+_data = {
+&"goodEnding": SubResource("Animation_dfw2r")
+}
+
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1pifm")
+}
 
 [node name="blackBackground" type="Sprite2D" parent="."]
 position = Vector2(219.00002, 100)
