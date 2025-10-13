@@ -9,12 +9,10 @@ const JUMP_VELOCITY = -300.0
 @onready var anim_sprite = $AnimatedSprite2D
 
 #for double jump
-@onready var max_jumps = 2
-@onready var jumps_left = max_jumps
+@onready var jumps_left = Global.max_jumps
 
 #for dash
-@export var max_dash = 2
-@export var dash_left = max_dash
+@export var dash_left = Global.max_dash
 @export var dash_speed = 400.0 # Speed during the dash
 @export var dash_duration = 0.2 # How long the dash lasts
 @export var dash_cooldown = 1.0
@@ -32,13 +30,13 @@ const JUMP_VELOCITY = -300.0
 func _ready():
 	$Walk.play()
 	#double jump
-	jumps_left = max_jumps
+	jumps_left = Global.max_jumps
 	
 	#death
 	controls_enabled = true
 	
 	#dash
-	dash_left = max_dash
+	dash_left = Global.max_dash
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
 
@@ -50,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
-		jumps_left = max_jumps  # Reset jumps when on ground
+		jumps_left = Global.max_jumps  # Reset jumps when on ground
 
 	# Handle jump.
 	if Input.is_action_just_pressed("move_up") and jumps_left > 0:
@@ -67,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		
 
 	#Handle dash.
-	if Input.is_action_just_pressed("dash") and can_dash:
+	if Input.is_action_just_pressed("dash") and can_dash and Global.max_dash != 0:
 		start_dash(direction, anim_sprite.flip_h)
 	
 	#debug change scene
@@ -127,7 +125,7 @@ func _on_dash_timeout() -> void:
 	
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
-	dash_left = max_dash
+	dash_left = Global.max_dash
 	dash_cooldown_timer.wait_time = dash_cooldown 
 #DASH DONE
 
@@ -152,13 +150,13 @@ func _on_cure_body_entered(body: Node2D) -> void:
 
 
 func _on_delete_dash_pressed() -> void:
-	max_dash = 1
+	Global.max_dash = 0
 	$"../UI/dash".hide()
 	$"../UI/nodash".show()
 	$"../UI/L1_Change_Scene".start()
 	
 func _on_delete_double_jump_pressed() -> void:
-	max_jumps = 1
+	Global.max_jumps = 1
 	$"../UI/doublejump".hide()
 	$"../UI/nodoublejump".show()
 	$"../UI/L1_Change_Scene".start()
