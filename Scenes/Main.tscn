@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ce4c2rf5i7xef" path="res://Scripts/main.gd" id="1_idj7w"]
 [ext_resource type="Texture2D" uid="uid://bd24wapih7wcn" path="res://Assets/drawn assets/IMG_0519.PNG" id="2_kln2b"]
-[ext_resource type="AudioStream" uid="uid://bcqn5n5j4e62q" path="res://Assets/soundEffects/Clement Panchout _ Journey _ 2017.wav" id="3_kln2b"]
+[ext_resource type="AudioStream" uid="uid://bcqn5n5j4e62q" path="res://Assets/soundEffects/bgmusic.mp3" id="3_kln2b"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_idj7w")
