@@ -1,13 +1,90 @@
-[gd_scene load_steps=5 format=3 uid="uid://c432ptejdqfqd"]
+[gd_scene load_steps=6 format=3 uid="uid://c432ptejdqfqd"]
 
 [ext_resource type="Texture2D" uid="uid://bsmmhyean18n0" path="res://Assets/drawn assets/Black.png" id="1_dfw2r"]
-[ext_resource type="Texture2D" uid="uid://cijoe6y1hmqqr" path="res://Assets/drawn assets/IMG_0520.PNG" id="2_1pifm"]
+[ext_resource type="Texture2D" uid="uid://b5mwk187lgxuy" path="res://Assets/drawn assets/noWhales.png" id="2_dfw2r"]
 
 [sub_resource type="Animation" id="Animation_dfw2r"]
 resource_name = "goodEnding"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("good:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.1, 7.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["I brough the cures to the island following the address given on the postcard"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1pifm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("good:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["I brough the cures to the island following the address given on the postcard"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1pifm"]
 _data = {
+&"RESET": SubResource("Animation_1pifm"),
 &"goodEnding": SubResource("Animation_dfw2r")
 }
 
@@ -23,11 +100,28 @@ position = Vector2(219.00002, 100)
 scale = Vector2(6.4609375, 4.5117188)
 texture = ExtResource("1_dfw2r")
 
-[node name="cg" type="Sprite2D" parent="."]
+[node name="good" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(180, 105)
 scale = Vector2(0.39696762, 0.4031775)
-texture = ExtResource("2_1pifm")
+texture = ExtResource("2_dfw2r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(180, 105)
 scale = Vector2(6.4609375, 4.5117188)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = 30.0
+offset_right = 765.0
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 27
+text = "I brough the cures to the island following the address given on the postcard"
