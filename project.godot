@@ -17,9 +17,9 @@ config/icon="res://Export/icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
-Sounds="*res://background_music.tscn"
-BackgroundMusic="res://background_music.tscn"
+Global="*res://Scripts/global.gd"
+Sounds="*res://Scenes/background_music.tscn"
+BackgroundMusic="res://Scenes/background_music.tscn"
 
 [editor_plugins]
 

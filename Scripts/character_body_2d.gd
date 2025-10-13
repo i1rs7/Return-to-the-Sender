@@ -169,6 +169,7 @@ func _on_cure_body_entered(body: Node2D) -> void:
 	controls_enabled = false
 	$"../UI".show()
 	Global.cures_obtained += 1
+	get_tree().change_scene_to_file("res://Scenes/middle_cutscene.tscn")
 	
 
 
