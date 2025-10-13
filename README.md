@@ -1,1 +1,3 @@
 Dive into a whimsical journey to Whale Island! Help Raya as she travels across forests and swamps after receiving a mysterious postcard from a faraway castle. Its land is being destroyed and Raya must collect magical cures to protect it. But be careful! These potions may have the minor side effect of causing memory loss. Move with the arrow keys to avoid dangerous water and collect the potions. Can you save the decaying island before it’s too late?
+
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
