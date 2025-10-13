@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://bmttq2lnddfwb"]
+[gd_scene load_steps=53 format=4 uid="uid://bmttq2lnddfwb"]
 
 [ext_resource type="Texture2D" uid="uid://bne7p4mevepe3" path="res://Assets/Mossy Fantasy/Mossy Tileset/Background.jpg" id="1_4ew63"]
 [ext_resource type="Texture2D" uid="uid://dpevpd2btth2h" path="res://Assets/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_cl68u"]
@@ -14,7 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bar6sybdhad8b" path="res://Assets/CharacterAnimations/Attack.png" id="10_x8cy6"]
 [ext_resource type="Texture2D" uid="uid://f8manbwbons5" path="res://Assets/CharacterAnimations/Run.png" id="11_jen0v"]
 [ext_resource type="Texture2D" uid="uid://baotpsko8htyl" path="res://Assets/CharacterAnimations/Die.png" id="11_mln4t"]
-[ext_resource type="Texture2D" uid="uid://b4wmcg1fjxuhq" path="res://Assets/drawn assets/Untitled_Artwork 5.png" id="13_dv2v8"]
+[ext_resource type="Texture2D" uid="uid://cnrm824cpeq3w" path="res://Assets/drawn assets/Untitled_Artwork 5.png" id="13_dv2v8"]
+[ext_resource type="AudioStream" uid="uid://bkipj20tp1ui4" path="res://Assets/soundEffects/splash.mp3" id="16_7fwia"]
+[ext_resource type="AudioStream" uid="uid://cwinmd3mcfno3" path="res://Assets/soundEffects/jump.mp3" id="17_r6jdp"]
+[ext_resource type="AudioStream" uid="uid://c8vth6auu6oab" path="res://Assets/soundEffects/walk water.mp3" id="18_7fwia"]
+[ext_resource type="AudioStream" uid="uid://bsh7maux3ewdf" path="res://Assets/soundEffects/dash.mp3" id="19_7fwia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p24lo"]
 texture = ExtResource("3_bi3nv")
@@ -424,6 +428,22 @@ one_shot = true
 
 [node name="Dash" type="Timer" parent="CharacterBody2D"]
 one_shot = true
+
+[node name="Splash" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("16_7fwia")
+volume_db = 20.0
+
+[node name="Jump" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("17_r6jdp")
+volume_db = -5.0
+
+[node name="Walk" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("18_7fwia")
+volume_db = 10.0
+
+[node name="Dash2" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("19_7fwia")
+volume_db = 20.0
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="CharacterBody2D/Death" to="CharacterBody2D" method="_on_death_timeout"]

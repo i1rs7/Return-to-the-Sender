@@ -30,6 +30,7 @@ const JUMP_VELOCITY = -300.0
 
 	
 func _ready():
+	$Walk.play()
 	#double jump
 	jumps_left = max_jumps
 	
@@ -63,7 +64,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$Walk.play()
+		
 
 	#Handle dash.
 	if Input.is_action_just_pressed("dash") and can_dash:
@@ -100,6 +101,7 @@ func update_animation(direction):
 	
 #dash functions
 func start_dash(direction, is_anim_flipped):
+	$Dash2.play()
 	is_dashing = true
 	dash_left -= 1
 	SPEED = dash_speed
