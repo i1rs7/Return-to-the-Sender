@@ -21,6 +21,10 @@ Global="*res://Scripts/global.gd"
 Sounds="*res://Scenes/background_music.tscn"
 BackgroundMusic="res://Scenes/background_music.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
